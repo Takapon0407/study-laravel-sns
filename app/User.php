@@ -55,6 +55,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Article');
     }
+
+    public function likes(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Article', 'likes')->withTimestamps();
+    }
     
     public function sendPasswordResetNotification($token)
     {
